@@ -1,6 +1,6 @@
 "use client";
 
-import { ChefHat, Recipe, PackageCheck } from "lucide-react";
+import { ChefHat, WheatIcon, PackageCheck } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -19,7 +19,7 @@ export default function KitchenPage() {
         <Card className="hover:shadow-md transition-shadow">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Recipe className="size-5" />
+              <WheatIcon className="size-5" />
               Recipe Lockdown
             </CardTitle>
             <CardDescription>
