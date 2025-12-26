@@ -63,19 +63,20 @@ export function RevenueBreakdown() {
                 <span>{item.category}</span>
               </div>
               <span className="font-medium tabular-nums">
-                ${item.revenue.toLocaleString()} ({((item.revenue / total) * 100).toFixed(1)}%)
+                ₹{item.revenue.toLocaleString()} ({((item.revenue / total) * 100).toFixed(1)}%)
               </span>
             </div>
           ))}
         </div>
         <div className="mt-4 flex items-center gap-2 text-sm font-medium">
           <DollarSign className="size-4 text-green-500" />
-          <span>Total Revenue: ${total.toLocaleString()}</span>
+          <span>Total Revenue: ₹{total.toLocaleString()}</span>
         </div>
       </CardContent>
     </Card>
   );
 }
+
 
 
 

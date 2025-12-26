@@ -26,11 +26,11 @@ export function ProductStats() {
       <Card className="@container/card">
         <CardHeader>
           <CardDescription>Average Price</CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">$16.85</CardTitle>
+          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">₹16.85</CardTitle>
           <CardAction>
             <Badge variant="outline" className="gap-1">
               <DollarSign className="size-3" />
-              Menu Avg
+              Menu Avg ₹
             </Badge>
           </CardAction>
         </CardHeader>

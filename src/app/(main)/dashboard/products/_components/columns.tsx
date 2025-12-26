@@ -68,7 +68,7 @@ export const columns: ColumnDef<Product>[] = [
       return (
         <div className="flex flex-col gap-1">
           <div className="font-semibold tabular-nums">
-            ${price.toFixed(2)}
+            ₹{price.toFixed(2)}
           </div>
           <div className="text-xs text-muted-foreground">
             Margin: {margin.toFixed(0)}%

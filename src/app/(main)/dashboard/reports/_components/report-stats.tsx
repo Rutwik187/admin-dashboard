@@ -9,7 +9,7 @@ export function ReportStats() {
       <Card className="@container/card">
         <CardHeader>
           <CardDescription>Monthly Revenue</CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">$105,000</CardTitle>
+          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">₹105,000</CardTitle>
           <CardAction>
             <Badge variant="outline" className="gap-1">
               <TrendingUp className="size-3" />
@@ -26,7 +26,7 @@ export function ReportStats() {
       <Card className="@container/card">
         <CardHeader>
           <CardDescription>Average Order Value</CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">$42.50</CardTitle>
+          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">₹42.50</CardTitle>
           <CardAction>
             <Badge variant="outline" className="gap-1">
               <TrendingUp className="size-3" />
@@ -78,6 +78,7 @@ export function ReportStats() {
     </div>
   );
 }
+
 
 
 

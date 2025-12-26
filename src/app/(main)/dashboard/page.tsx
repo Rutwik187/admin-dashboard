@@ -121,7 +121,7 @@ export default function Page() {
         <Card className="@container/card">
           <CardHeader>
             <CardDescription>Monthly Expenses</CardDescription>
-            <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">$42,350</CardTitle>
+            <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">₹42,350</CardTitle>
             <CardAction>
               <Badge variant="outline" className="gap-1">
                 <TrendingDown className="size-3" />
@@ -131,7 +131,7 @@ export default function Page() {
           </CardHeader>
           <CardFooter className="flex-col items-start gap-1.5 text-sm">
             <div className="flex gap-2 font-medium">
-              Reduced costs <DollarSign className="size-4" />
+              Reduced costs ₹
             </div>
             <div className="text-muted-foreground">Better than last month</div>
           </CardFooter>

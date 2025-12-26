@@ -96,15 +96,15 @@ export function AccountOverview() {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-muted-foreground">Current Balance</span>
-                  <span className="font-medium tabular-nums">$127,340.85</span>
+                  <span className="font-medium tabular-nums">₹127,340.85</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-muted-foreground">Monthly Revenue</span>
-                  <span className="font-medium tabular-nums">$152,890.00</span>
+                  <span className="font-medium tabular-nums">₹152,890.00</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-muted-foreground">Monthly Expenses</span>
-                  <span className="font-medium tabular-nums">$89,450.00</span>
+                  <span className="font-medium tabular-nums">₹89,450.00</span>
                 </div>
               </div>
 
@@ -167,7 +167,7 @@ export function AccountOverview() {
             <div className="space-y-4">
               <div className="text-center text-sm text-muted-foreground py-8">
                 <p>Savings account details</p>
-                <p className="mt-2">Balance: $45,200.00</p>
+                <p className="mt-2">Balance: ₹45,200.00</p>
               </div>
             </div>
           </TabsContent>

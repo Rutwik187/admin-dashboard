@@ -46,11 +46,11 @@ export function CashFlowChart() {
         <div className="space-y-2 text-sm">
           <div className="flex items-center justify-between">
             <span className="text-muted-foreground">Average Weekly</span>
-            <span className="font-medium tabular-nums">$14,600</span>
+            <span className="font-medium tabular-nums">₹14,600</span>
           </div>
           <div className="flex items-center justify-between">
             <span className="text-muted-foreground">Best Week</span>
-            <span className="font-medium tabular-nums">$18,900</span>
+            <span className="font-medium tabular-nums">₹18,900</span>
           </div>
           <div className="flex items-center justify-between">
             <span className="text-muted-foreground">Trend</span>
@@ -61,6 +61,7 @@ export function CashFlowChart() {
     </Card>
   );
 }
+
 
 
 

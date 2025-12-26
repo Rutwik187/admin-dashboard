@@ -64,7 +64,7 @@ export function SupplierStats() {
       <Card className="@container/card">
         <CardHeader>
           <CardDescription>Monthly Procurement</CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">$45,280</CardTitle>
+          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl"> ₹45,280</CardTitle>
           <CardAction>
             <Badge variant="outline" className="gap-1">
               <TrendingUp className="size-3" />

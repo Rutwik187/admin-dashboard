@@ -66,12 +66,13 @@ export function SalesReport() {
         </ChartContainer>
         <div className="mt-4 flex items-center gap-2 text-sm">
           <TrendingUp className="size-4 text-green-500" />
-          <span className="font-medium">Average daily sales: $5,871</span>
+          <span className="font-medium">Average daily sales: ₹5,871</span>
         </div>
       </CardContent>
     </Card>
   );
 }
+
 
 
 

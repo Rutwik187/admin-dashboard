@@ -123,14 +123,14 @@ export function TableCellViewer({ item }: { item: z.infer<typeof sectionSchema> 
                     <SelectValue placeholder="Select a category" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Electronics">Electronics</SelectItem>
-                    <SelectItem value="Clothing">Clothing</SelectItem>
-                    <SelectItem value="Books">Books</SelectItem>
-                    <SelectItem value="Home & Garden">Home & Garden</SelectItem>
-                    <SelectItem value="Sports">Sports</SelectItem>
-                    <SelectItem value="Automotive">Automotive</SelectItem>
-                    <SelectItem value="Health & Beauty">Health & Beauty</SelectItem>
-                    <SelectItem value="Toys">Toys</SelectItem>
+                    <SelectItem value="Spices & Masalas">Spices & Masalas</SelectItem>
+                    <SelectItem value="Grains & Pulses">Grains & Pulses</SelectItem>
+                    <SelectItem value="Vegetables">Vegetables</SelectItem>
+                    <SelectItem value="Dairy Products">Dairy Products</SelectItem>
+                    <SelectItem value="Meat & Poultry">Meat & Poultry</SelectItem>
+                    <SelectItem value="Seafood">Seafood</SelectItem>
+                    <SelectItem value="Oils & Ghee">Oils & Ghee</SelectItem>
+                    <SelectItem value="Beverages">Beverages</SelectItem>
                   </SelectContent>
                 </Select>
               </div>

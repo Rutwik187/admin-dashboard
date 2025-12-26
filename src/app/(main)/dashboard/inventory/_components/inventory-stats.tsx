@@ -45,7 +45,7 @@ export function InventoryStats() {
       <Card className="@container/card">
         <CardHeader>
           <CardDescription>Inventory Value</CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">$52,840</CardTitle>
+          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">₹52,840</CardTitle>
           <CardAction>
             <Badge variant="outline" className="gap-1">
               <TrendingUp className="size-3" />
@@ -55,7 +55,7 @@ export function InventoryStats() {
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
           <div className="flex gap-2 font-medium">
-            Increased value <DollarSign className="size-4" />
+            Increased value ₹
           </div>
           <div className="text-muted-foreground">Compared to last month</div>
         </CardFooter>
@@ -64,7 +64,7 @@ export function InventoryStats() {
       <Card className="@container/card">
         <CardHeader>
           <CardDescription>Monthly Consumption</CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">$38,520</CardTitle>
+          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">₹38,520</CardTitle>
           <CardAction>
             <Badge variant="outline" className="gap-1">
               <TrendingDown className="size-3" />

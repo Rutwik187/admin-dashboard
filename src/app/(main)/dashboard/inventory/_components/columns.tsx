@@ -102,7 +102,7 @@ export const columns: ColumnDef<InventoryItem>[] = [
       const cost = parseFloat(row.getValue("costPerUnit"));
       const formatted = new Intl.NumberFormat("en-US", {
         style: "currency",
-        currency: "USD",
+        currency: "INR",
       }).format(cost);
       return <div className="tabular-nums">{formatted}</div>;
     },
