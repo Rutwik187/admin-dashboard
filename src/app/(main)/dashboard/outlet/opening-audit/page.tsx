@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+
 import { ClipboardCheck, AlertTriangle, CheckCircle2, Plus, Minus } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+
 import { StatusIndicator } from "@/components/inventory/status-indicator";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 
 interface AuditItem {
@@ -42,7 +44,7 @@ export default function OpeningAuditPage() {
           };
         }
         return item;
-      })
+      }),
     );
   };
 
@@ -53,7 +55,7 @@ export default function OpeningAuditPage() {
       alert(
         `Variance detected in ${varianceItems.length} items:\n${varianceItems
           .map((item) => `${item.name}: Expected ${item.expectedQty}, Counted ${item.countedQty}`)
-          .join("\n")}\n\nIs one missing or damaged?`
+          .join("\n")}\n\nIs one missing or damaged?`,
       );
     }
     setIsCompleted(true);
@@ -64,7 +66,7 @@ export default function OpeningAuditPage() {
   const completedItems = items.filter((item) => item.countedQty > 0 && item.variance === 0);
 
   return (
-    <div className="flex flex-col gap-6 @container">
+    <div className="@container flex flex-col gap-6">
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl font-bold tracking-tight">Opening Stock Audit</h1>
         <p className="text-muted-foreground">
@@ -105,24 +107,21 @@ export default function OpeningAuditPage() {
             {items.map((item) => (
               <div
                 key={item.id}
-                className={`rounded-lg border p-4 ${
-                  item.variance !== 0 ? "border-orange-500/50 bg-orange-500/5" : ""
-                }`}
+                className={`rounded-lg border p-4 ${item.variance !== 0 ? "border-orange-500/50 bg-orange-500/5" : ""}`}
               >
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2">
+                    <div className="mb-2 flex items-center gap-2">
                       <h3 className="font-semibold">{item.name}</h3>
                       {item.variance !== 0 && (
-                        <Badge variant="outline" className="border-orange-500 text-orange-600 animate-pulse">
-                          Variance: {item.variance > 0 ? "+" : ""}{item.variance}
+                        <Badge variant="outline" className="animate-pulse border-orange-500 text-orange-600">
+                          Variance: {item.variance > 0 ? "+" : ""}
+                          {item.variance}
                         </Badge>
                       )}
-                      {item.variance === 0 && item.countedQty > 0 && (
-                        <StatusIndicator status="completed" />
-                      )}
+                      {item.variance === 0 && item.countedQty > 0 && <StatusIndicator status="completed" />}
                     </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-muted-foreground text-sm">
                       Expected: {item.expectedQty} | Counted: {item.countedQty}
                     </p>
                     {item.variance !== 0 && (
@@ -177,5 +176,3 @@ export default function OpeningAuditPage() {
     </div>
   );
 }
-
-

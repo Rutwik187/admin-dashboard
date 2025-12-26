@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+
 import { Package, ArrowLeft, AlertTriangle, DollarSign } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -65,12 +67,10 @@ export default function ReturnsPage() {
   const totalWastageCost = returns.reduce((sum, item) => sum + item.cost, 0);
 
   return (
-    <div className="flex flex-col gap-6 @container">
+    <div className="@container flex flex-col gap-6">
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl font-bold tracking-tight">Return to Factory</h1>
-        <p className="text-muted-foreground">
-          Scan unsold items back into van. System tracks wastage cost
-        </p>
+        <p className="text-muted-foreground">Scan unsold items back into van. System tracks wastage cost</p>
       </div>
 
       {/* Add Return */}
@@ -141,12 +141,12 @@ export default function ReturnsPage() {
                 {returns.map((item) => (
                   <div key={item.id} className="flex items-center justify-between rounded-lg border p-4">
                     <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        <Package className="size-4 text-muted-foreground" />
+                      <div className="mb-1 flex items-center gap-2">
+                        <Package className="text-muted-foreground size-4" />
                         <h3 className="font-semibold">{item.name}</h3>
                         <Badge variant="outline">{item.reason}</Badge>
                       </div>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-muted-foreground text-sm">
                         Qty: {item.returnQty} | Cost: ₹{item.cost.toFixed(2)}
                       </p>
                     </div>
@@ -186,5 +186,3 @@ export default function ReturnsPage() {
     </div>
   );
 }
-
-

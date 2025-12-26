@@ -1,13 +1,15 @@
 "use client";
 
-import { ShoppingBag, Factory, Boxes } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
+
+import { ShoppingBag, Factory, Boxes } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function OrdersPage() {
   return (
-    <div className="flex flex-col gap-6 @container">
+    <div className="@container flex flex-col gap-6">
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl font-bold tracking-tight">Order Management</h1>
         <p className="text-muted-foreground">
@@ -16,7 +18,7 @@ export default function OrdersPage() {
       </div>
 
       <div className="grid grid-cols-1 gap-4 @md:grid-cols-3">
-        <Card className="hover:shadow-md transition-shadow">
+        <Card className="transition-shadow hover:shadow-md">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <ShoppingBag className="size-5" />
@@ -33,15 +35,13 @@ export default function OrdersPage() {
           </CardContent>
         </Card>
 
-        <Card className="hover:shadow-md transition-shadow">
+        <Card className="transition-shadow hover:shadow-md">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Factory className="size-5" />
               Production
             </CardTitle>
-            <CardDescription>
-              Production department receives orders and marks as completed with images
-            </CardDescription>
+            <CardDescription>Production department receives orders and marks as completed with images</CardDescription>
           </CardHeader>
           <CardContent>
             <Link href="/dashboard/orders/production">
@@ -50,15 +50,13 @@ export default function OrdersPage() {
           </CardContent>
         </Card>
 
-        <Card className="hover:shadow-md transition-shadow">
+        <Card className="transition-shadow hover:shadow-md">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Boxes className="size-5" />
               Packaging
             </CardTitle>
-            <CardDescription>
-              Packaging department tracks packaging progress as items are packed
-            </CardDescription>
+            <CardDescription>Packaging department tracks packaging progress as items are packed</CardDescription>
           </CardHeader>
           <CardContent>
             <Link href="/dashboard/orders/packaging">
@@ -70,5 +68,3 @@ export default function OrdersPage() {
     </div>
   );
 }
-
-

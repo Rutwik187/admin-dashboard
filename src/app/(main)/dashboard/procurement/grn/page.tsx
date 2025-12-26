@@ -1,15 +1,17 @@
 "use client";
 
 import { useState } from "react";
+
 import { CheckCircle2, Upload, Camera, FileText } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+
 import { PhotoValidation } from "@/components/inventory/photo-validation";
 import { StatusIndicator } from "@/components/inventory/status-indicator";
 import { UnitIcon, type UnitType } from "@/components/inventory/unit-icons";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 interface GRNItem {
   id: string;
@@ -109,7 +111,7 @@ export default function VisualGRNPage() {
   const completedCount = items.filter((item) => item.status === "completed").length;
 
   return (
-    <div className="flex flex-col gap-6 @container">
+    <div className="@container flex flex-col gap-6">
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl font-bold tracking-tight">Visual GRN (Goods Receipt Note)</h1>
         <p className="text-muted-foreground">
@@ -150,7 +152,7 @@ export default function VisualGRNPage() {
                     label={item.status}
                   />
                 </div>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-muted-foreground text-sm">
                   Expected: {item.expectedQty} | Received: {item.receivedQty}
                 </div>
               </div>
@@ -252,5 +254,3 @@ export default function VisualGRNPage() {
     </div>
   );
 }
-
-

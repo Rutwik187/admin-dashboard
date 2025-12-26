@@ -1,12 +1,21 @@
 "use client";
 
 import { useState } from "react";
+
 import { Plus, Lock, Edit, Trash2 } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+
 import { UnitIcon, type UnitType } from "@/components/inventory/unit-icons";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
@@ -58,13 +67,11 @@ export default function RecipeLockdownPage() {
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
 
   const toggleLock = (id: string) => {
-    setRecipes(
-      recipes.map((recipe) => (recipe.id === id ? { ...recipe, isLocked: !recipe.isLocked } : recipe))
-    );
+    setRecipes(recipes.map((recipe) => (recipe.id === id ? { ...recipe, isLocked: !recipe.isLocked } : recipe)));
   };
 
   return (
-    <div className="flex flex-col gap-6 @container">
+    <div className="@container flex flex-col gap-6">
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl font-bold tracking-tight">Recipe Lockdown</h1>
         <p className="text-muted-foreground">
@@ -75,7 +82,7 @@ export default function RecipeLockdownPage() {
       {/* Recipe List */}
       <div className="grid grid-cols-1 gap-4 @md:grid-cols-2 @lg:grid-cols-3">
         {recipes.map((recipe) => (
-          <Card key={recipe.id} className="hover:shadow-md transition-shadow">
+          <Card key={recipe.id} className="transition-shadow hover:shadow-md">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <CardTitle>{recipe.name}</CardTitle>
@@ -103,20 +110,10 @@ export default function RecipeLockdownPage() {
                 </div>
               </div>
               <div className="flex gap-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => toggleLock(recipe.id)}
-                  className="flex-1"
-                >
+                <Button variant="outline" size="sm" onClick={() => toggleLock(recipe.id)} className="flex-1">
                   {recipe.isLocked ? "Unlock" : "Lock"}
                 </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setSelectedRecipe(recipe)}
-                  className="flex-1"
-                >
+                <Button variant="outline" size="sm" onClick={() => setSelectedRecipe(recipe)} className="flex-1">
                   <Edit className="size-4" />
                 </Button>
               </div>
@@ -153,9 +150,7 @@ export default function RecipeLockdownPage() {
                 </div>
                 <div>
                   <Label>Ingredients</Label>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    Add ingredients and their required quantities
-                  </p>
+                  <p className="text-muted-foreground mb-2 text-sm">Add ingredients and their required quantities</p>
                   <Button variant="outline" className="w-full">
                     <Plus className="mr-2 size-4" />
                     Add Ingredient
@@ -170,5 +165,3 @@ export default function RecipeLockdownPage() {
     </div>
   );
 }
-
-

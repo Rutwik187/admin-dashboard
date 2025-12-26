@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+
 import { Camera, CheckCircle2, XCircle, Upload } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
@@ -82,17 +84,11 @@ export function PhotoValidation({
                   "flex items-center gap-2 rounded-lg p-3",
                   isVerified
                     ? "bg-green-500/10 text-green-600 dark:text-green-400"
-                    : "bg-red-500/10 text-red-600 dark:text-red-400"
+                    : "bg-red-500/10 text-red-600 dark:text-red-400",
                 )}
               >
-                {isVerified ? (
-                  <CheckCircle2 className="size-5" />
-                ) : (
-                  <XCircle className="size-5" />
-                )}
-                <span className="font-medium">
-                  {isVerified ? "Item Verified ✓" : "Item Mismatch ✗"}
-                </span>
+                {isVerified ? <CheckCircle2 className="size-5" /> : <XCircle className="size-5" />}
+                <span className="font-medium">{isVerified ? "Item Verified ✓" : "Item Mismatch ✗"}</span>
               </div>
             )}
           </div>
@@ -106,5 +102,3 @@ export function PhotoValidation({
     </Card>
   );
 }
-
-

@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+
 import { DollarSign, TrendingUp, TrendingDown, RefreshCw } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis, Tooltip } from "recharts";
+
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 
 interface COGSItem {
@@ -70,7 +72,7 @@ export default function COGSLivePage() {
   const avgMargin = cogsData.reduce((sum, item) => sum + item.profitMargin, 0) / cogsData.length;
 
   return (
-    <div className="flex flex-col gap-6 @container">
+    <div className="@container flex flex-col gap-6">
       <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
           <div>
@@ -80,10 +82,8 @@ export default function COGSLivePage() {
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <p className="text-sm text-muted-foreground">
-              Updated: {lastUpdated.toLocaleTimeString()}
-            </p>
-            <button onClick={handleRefresh} className="p-2 hover:bg-accent rounded-lg">
+            <p className="text-muted-foreground text-sm">Updated: {lastUpdated.toLocaleTimeString()}</p>
+            <button onClick={handleRefresh} className="hover:bg-accent rounded-lg p-2">
               <RefreshCw className="size-4" />
             </button>
           </div>
@@ -141,24 +141,9 @@ export default function COGSLivePage() {
               <XAxis dataKey="date" />
               <YAxis />
               <ChartTooltip content={<ChartTooltipContent />} />
-              <Area
-                dataKey="sugar"
-                type="natural"
-                fill="url(#fillSugar)"
-                stroke="var(--color-sugar)"
-              />
-              <Area
-                dataKey="flour"
-                type="natural"
-                fill="url(#fillFlour)"
-                stroke="var(--color-flour)"
-              />
-              <Area
-                dataKey="milk"
-                type="natural"
-                fill="url(#fillMilk)"
-                stroke="var(--color-milk)"
-              />
+              <Area dataKey="sugar" type="natural" fill="url(#fillSugar)" stroke="var(--color-sugar)" />
+              <Area dataKey="flour" type="natural" fill="url(#fillFlour)" stroke="var(--color-flour)" />
+              <Area dataKey="milk" type="natural" fill="url(#fillMilk)" stroke="var(--color-milk)" />
             </AreaChart>
           </ChartContainer>
         </CardContent>
@@ -178,32 +163,22 @@ export default function COGSLivePage() {
 
               return (
                 <div key={item.id} className="rounded-lg border p-4">
-                  <div className="flex items-center justify-between mb-3">
+                  <div className="mb-3 flex items-center justify-between">
                     <div>
                       <h3 className="font-semibold">{item.name}</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Sales Price: ₹{item.salesPrice}
-                      </p>
+                      <p className="text-muted-foreground text-sm">Sales Price: ₹{item.salesPrice}</p>
                     </div>
                     <div className="text-right">
                       <div className="flex items-center gap-2">
                         <Badge
                           variant={
-                            item.profitMargin > 50
-                              ? "outline"
-                              : item.profitMargin > 40
-                                ? "secondary"
-                                : "destructive"
+                            item.profitMargin > 50 ? "outline" : item.profitMargin > 40 ? "secondary" : "destructive"
                           }
                         >
                           {item.profitMargin.toFixed(1)}% Margin
                         </Badge>
-                        {item.trend === "up" && (
-                          <TrendingUp className="size-4 text-green-600" />
-                        )}
-                        {item.trend === "down" && (
-                          <TrendingDown className="size-4 text-red-600" />
-                        )}
+                        {item.trend === "up" && <TrendingUp className="size-4 text-green-600" />}
+                        {item.trend === "down" && <TrendingDown className="size-4 text-red-600" />}
                       </div>
                     </div>
                   </div>
@@ -236,5 +211,3 @@ export default function COGSLivePage() {
     </div>
   );
 }
-
-

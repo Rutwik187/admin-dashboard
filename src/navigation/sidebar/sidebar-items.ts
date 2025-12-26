@@ -71,6 +71,16 @@ export const sidebarItems: NavGroup[] = [
     label: "Operational Zones",
     items: [
       {
+        title: "Order Management",
+        url: "/dashboard/orders",
+        icon: ShoppingBag,
+        subItems: [
+          { title: "Create Order", url: "/dashboard/orders/create", icon: ShoppingBag },
+          { title: "Production", url: "/dashboard/orders/production", icon: Factory },
+          { title: "Packaging", url: "/dashboard/orders/packaging", icon: Boxes },
+        ],
+      },
+      {
         title: "Outlet",
         url: "/dashboard/outlet",
         icon: Store,
@@ -117,16 +127,7 @@ export const sidebarItems: NavGroup[] = [
           { title: "COGS Live", url: "/dashboard/command-center/cogs", icon: BarChart3 },
         ],
       },
-      {
-        title: "Order Management",
-        url: "/dashboard/orders",
-        icon: ShoppingBag,
-        subItems: [
-          { title: "Create Order", url: "/dashboard/orders/create", icon: ShoppingBag },
-          { title: "Production", url: "/dashboard/orders/production", icon: Factory },
-          { title: "Packaging", url: "/dashboard/orders/packaging", icon: Boxes },
-        ],
-      },
+   
     ],
   },
   {
@@ -142,9 +143,7 @@ export const sidebarItems: NavGroup[] = [
         title: "Suppliers",
         url: "/dashboard/suppliers",
         icon: TruckIcon,
-        subItems: [
-          { title: "Supplier Rating", url: "/dashboard/suppliers/rating", icon: Star },
-        ],
+        subItems: [{ title: "Supplier Rating", url: "/dashboard/suppliers/rating", icon: Star }],
       },
       {
         title: "Products",

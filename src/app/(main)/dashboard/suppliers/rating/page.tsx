@@ -1,8 +1,9 @@
 "use client";
 
 import { Star, Clock, DollarSign, CheckCircle2, XCircle, TrendingUp, TrendingDown } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+
 import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 
 interface SupplierRating {
@@ -87,7 +88,7 @@ export default function SupplierRatingPage() {
   };
 
   return (
-    <div className="flex flex-col gap-6 @container">
+    <div className="@container flex flex-col gap-6">
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl font-bold tracking-tight">Supplier Rating System</h1>
         <p className="text-muted-foreground">
@@ -150,9 +151,7 @@ export default function SupplierRatingPage() {
                       <Star
                         key={i}
                         className={`size-4 ${
-                          i < Math.floor(supplier.overallRating)
-                            ? "fill-yellow-400 text-yellow-400"
-                            : "text-gray-300"
+                          i < Math.floor(supplier.overallRating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
                         }`}
                       />
                     ))}
@@ -162,7 +161,7 @@ export default function SupplierRatingPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               {/* Key Insight */}
-              <div className="rounded-lg border p-3 bg-background">
+              <div className="bg-background rounded-lg border p-3">
                 <p className="text-sm">
                   {supplier.name} is{" "}
                   {supplier.priceRating > supplier.reliabilityRating ? (
@@ -185,8 +184,8 @@ export default function SupplierRatingPage() {
               {/* Rating Breakdown */}
               <div className="grid grid-cols-1 gap-3 @md:grid-cols-3">
                 <div>
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="text-sm font-medium flex items-center gap-1">
+                  <div className="mb-1 flex items-center justify-between">
+                    <span className="flex items-center gap-1 text-sm font-medium">
                       <DollarSign className="size-4" />
                       Price
                     </span>
@@ -197,8 +196,8 @@ export default function SupplierRatingPage() {
                   <Progress value={(supplier.priceRating / 5) * 100} className="h-2" />
                 </div>
                 <div>
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="text-sm font-medium flex items-center gap-1">
+                  <div className="mb-1 flex items-center justify-between">
+                    <span className="flex items-center gap-1 text-sm font-medium">
                       <Clock className="size-4" />
                       Reliability
                     </span>
@@ -209,8 +208,8 @@ export default function SupplierRatingPage() {
                   <Progress value={(supplier.reliabilityRating / 5) * 100} className="h-2" />
                 </div>
                 <div>
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="text-sm font-medium flex items-center gap-1">
+                  <div className="mb-1 flex items-center justify-between">
+                    <span className="flex items-center gap-1 text-sm font-medium">
                       <CheckCircle2 className="size-4" />
                       Quality
                     </span>
@@ -227,7 +226,7 @@ export default function SupplierRatingPage() {
                 <div>
                   <p className="text-muted-foreground mb-1">On-Time Delivery</p>
                   <div className="flex items-center gap-2">
-                    <Progress value={supplier.onTimeDelivery} className="flex-1 h-2" />
+                    <Progress value={supplier.onTimeDelivery} className="h-2 flex-1" />
                     <span className="font-medium">{supplier.onTimeDelivery}%</span>
                   </div>
                 </div>
@@ -243,5 +242,3 @@ export default function SupplierRatingPage() {
     </div>
   );
 }
-
-

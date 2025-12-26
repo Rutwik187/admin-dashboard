@@ -1,14 +1,16 @@
 "use client";
 
 import { useState } from "react";
+
 import { Plus, X, ShoppingBag, CheckCircle2 } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+
+import { StatusIndicator } from "@/components/inventory/status-indicator";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Badge } from "@/components/ui/badge";
-import { StatusIndicator } from "@/components/inventory/status-indicator";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 interface OrderItem {
   id: string;
@@ -127,9 +129,7 @@ export default function CreateOrderPage() {
 
   const updateQuantity = (id: string, newQty: number) => {
     if (newQty > 0) {
-      setOrderItems(
-        orderItems.map((item) => (item.id === id ? { ...item, quantity: newQty } : item))
-      );
+      setOrderItems(orderItems.map((item) => (item.id === id ? { ...item, quantity: newQty } : item)));
     }
   };
 
@@ -147,7 +147,7 @@ export default function CreateOrderPage() {
   const totalItems = orderItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <div className="flex flex-col gap-6 @container">
+    <div className="@container flex flex-col gap-6">
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl font-bold tracking-tight">Create Order</h1>
         <p className="text-muted-foreground">
@@ -162,9 +162,7 @@ export default function CreateOrderPage() {
               <CheckCircle2 className="size-5" />
               Order Created Successfully!
             </CardTitle>
-            <CardDescription>
-              Order #{orderNumber} has been sent to Production Department
-            </CardDescription>
+            <CardDescription>Order #{orderNumber} has been sent to Production Department</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
@@ -172,12 +170,14 @@ export default function CreateOrderPage() {
               <div className="space-y-1 text-sm">
                 {orderItems.map((item) => (
                   <div key={item.id} className="flex justify-between">
-                    <span>{item.productName} x {item.quantity}</span>
+                    <span>
+                      {item.productName} x {item.quantity}
+                    </span>
                     <span>₹{item.price * item.quantity}</span>
                   </div>
                 ))}
               </div>
-              <div className="flex justify-between font-bold pt-2 border-t">
+              <div className="flex justify-between border-t pt-2 font-bold">
                 <span>Total:</span>
                 <span>₹{totalAmount}</span>
               </div>
@@ -210,7 +210,7 @@ export default function CreateOrderPage() {
                 <div>
                   <Label htmlFor="product-select">Select Product</Label>
                   <Select value={selectedProduct} onValueChange={setSelectedProduct}>
-                    <SelectTrigger id="product-select" className="w-full mt-1">
+                    <SelectTrigger id="product-select" className="mt-1 w-full">
                       <SelectValue placeholder="Choose a product..." />
                     </SelectTrigger>
                     <SelectContent>
@@ -255,20 +255,16 @@ export default function CreateOrderPage() {
                   {orderItems.map((item) => (
                     <div
                       key={item.id}
-                      className="flex items-center gap-4 rounded-lg border p-4 hover:bg-accent/50 transition-colors"
+                      className="hover:bg-accent/50 flex items-center gap-4 rounded-lg border p-4 transition-colors"
                     >
                       {item.image && (
                         <div className="relative size-16 shrink-0 overflow-hidden rounded-lg border">
-                          <img
-                            src={item.image}
-                            alt={item.productName}
-                            className="h-full w-full object-cover"
-                          />
+                          <img src={item.image} alt={item.productName} className="h-full w-full object-cover" />
                         </div>
                       )}
                       <div className="flex-1">
                         <h3 className="font-semibold">{item.productName}</h3>
-                        <p className="text-sm text-muted-foreground">₹{item.price} per unit</p>
+                        <p className="text-muted-foreground text-sm">₹{item.price} per unit</p>
                       </div>
                       <div className="flex items-center gap-2">
                         <Button
@@ -316,5 +312,3 @@ export default function CreateOrderPage() {
     </div>
   );
 }
-
-

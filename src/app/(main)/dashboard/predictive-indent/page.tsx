@@ -1,11 +1,12 @@
 "use client";
 
 import { TrendingUp, Calendar, AlertCircle, CheckCircle2 } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+
 import { StatusIndicator } from "@/components/inventory/status-indicator";
 import { UnitIcon, type UnitType } from "@/components/inventory/unit-icons";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface ForecastItem {
   id: string;
@@ -61,7 +62,7 @@ export default function PredictiveIndentPage() {
   const prepareItems = forecastData.filter((item) => item.recommendation === "prepare");
 
   return (
-    <div className="flex flex-col gap-6 @container">
+    <div className="@container flex flex-col gap-6">
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl font-bold tracking-tight">Predictive Indent (Smart Ordering)</h1>
         <p className="text-muted-foreground">
@@ -77,9 +78,7 @@ export default function PredictiveIndentPage() {
               <AlertCircle className="size-5" />
               Urgent: Start Production Now
             </CardTitle>
-            <CardDescription>
-              {urgentItems.length} item(s) will run out soon based on forecast
-            </CardDescription>
+            <CardDescription>{urgentItems.length} item(s) will run out soon based on forecast</CardDescription>
           </CardHeader>
         </Card>
       )}
@@ -125,7 +124,7 @@ export default function PredictiveIndentPage() {
                       : ""
                 }`}
               >
-                <div className="flex items-center justify-between mb-3">
+                <div className="mb-3 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <UnitIcon type={item.unit} size={24} />
                     <div>
@@ -142,7 +141,7 @@ export default function PredictiveIndentPage() {
                           </Badge>
                         )}
                       </div>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-muted-foreground text-sm">
                         Current Stock: {item.currentStock} | Forecasted Demand: {item.forecastedDemand}
                       </p>
                     </div>
@@ -157,25 +156,23 @@ export default function PredictiveIndentPage() {
                     }
                   />
                 </div>
-                <div className="rounded-lg border bg-background p-3">
+                <div className="bg-background rounded-lg border p-3">
                   <div className="flex items-center gap-2 text-sm">
-                    <Calendar className="size-4 text-muted-foreground" />
+                    <Calendar className="text-muted-foreground size-4" />
                     <span className="font-medium">
                       {item.recommendation === "start-now" && (
                         <>
-                          ⚠️ Detailed forecast: You usually sell {item.forecastedDemand} {item.name} on
-                          weekends. You only have stock for {item.currentStock}. Start baking now!
+                          ⚠️ Detailed forecast: You usually sell {item.forecastedDemand} {item.name} on weekends. You
+                          only have stock for {item.currentStock}. Start baking now!
                         </>
                       )}
                       {item.recommendation === "prepare" && (
                         <>
-                          📅 Forecast: Expected demand of {item.forecastedDemand} in {item.daysUntilShortage}{" "}
-                          days. Prepare to start production.
+                          📅 Forecast: Expected demand of {item.forecastedDemand} in {item.daysUntilShortage} days.
+                          Prepare to start production.
                         </>
                       )}
-                      {item.recommendation === "ok" && (
-                        <>✅ Stock levels adequate for forecasted demand</>
-                      )}
+                      {item.recommendation === "ok" && <>✅ Stock levels adequate for forecasted demand</>}
                     </span>
                   </div>
                 </div>
@@ -187,5 +184,3 @@ export default function PredictiveIndentPage() {
     </div>
   );
 }
-
-

@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+
 import { AlertCircle, Calendar, Package, CheckCircle2 } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+
 import { StatusIndicator } from "@/components/inventory/status-indicator";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface BatchItem {
@@ -75,7 +77,7 @@ export default function FEFOPage() {
   };
 
   return (
-    <div className="flex flex-col gap-6 @container">
+    <div className="@container flex flex-col gap-6">
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl font-bold tracking-tight">FEFO Tracking (First Expired, First Out)</h1>
         <p className="text-muted-foreground">
@@ -85,15 +87,13 @@ export default function FEFOPage() {
 
       {/* Alerts */}
       {criticalBatches.length > 0 && (
-        <Card className="border-red-500/50 bg-red-500/5 animate-pulse">
+        <Card className="animate-pulse border-red-500/50 bg-red-500/5">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-red-600 dark:text-red-400">
               <AlertCircle className="size-5" />
               Critical: {criticalBatches.length} Batch(es) Expiring Soon
             </CardTitle>
-            <CardDescription>
-              These items must be sold immediately to avoid wastage
-            </CardDescription>
+            <CardDescription>These items must be sold immediately to avoid wastage</CardDescription>
           </CardHeader>
         </Card>
       )}
@@ -123,12 +123,8 @@ export default function FEFOPage() {
       {/* Batch List */}
       <Tabs defaultValue="critical" className="w-full">
         <TabsList>
-          <TabsTrigger value="critical">
-            Critical ({criticalBatches.length})
-          </TabsTrigger>
-          <TabsTrigger value="warning">
-            Warning ({warningBatches.length})
-          </TabsTrigger>
+          <TabsTrigger value="critical">Critical ({criticalBatches.length})</TabsTrigger>
+          <TabsTrigger value="warning">Warning ({warningBatches.length})</TabsTrigger>
           <TabsTrigger value="all">All Batches</TabsTrigger>
         </TabsList>
 
@@ -170,12 +166,7 @@ export default function FEFOPage() {
                       ⚠️ Sell Batch #{batch.batchNumber} first! Expiring in {batch.daysUntilExpiry} day(s)
                     </p>
                   </div>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => markAsSold(batch.id)}
-                    className="w-full"
-                  >
+                  <Button variant="outline" size="sm" onClick={() => markAsSold(batch.id)} className="w-full">
                     Mark as Sold
                   </Button>
                 </CardContent>
@@ -217,9 +208,7 @@ export default function FEFOPage() {
                       <p className="font-medium">{batch.quantity} units</p>
                     </div>
                   </div>
-                  <p className="text-sm text-orange-600">
-                    Priority: Sell this batch before newer ones
-                  </p>
+                  <p className="text-sm text-orange-600">Priority: Sell this batch before newer ones</p>
                 </CardContent>
               </Card>
             ))
@@ -269,5 +258,3 @@ export default function FEFOPage() {
     </div>
   );
 }
-
-

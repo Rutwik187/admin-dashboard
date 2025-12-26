@@ -1,15 +1,17 @@
 "use client";
 
 import { useState } from "react";
+
 import { CheckCircle2, AlertTriangle, Package, ChefHat } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+
 import { StatusIndicator } from "@/components/inventory/status-indicator";
 import { UnitIcon, type UnitType } from "@/components/inventory/unit-icons";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 interface RecipeIngredient {
   id: string;
@@ -34,7 +36,14 @@ const availableRecipes = [
     batchSize: 50,
     ingredients: [
       { id: "1", name: "Flour", requiredQty: 5, availableQty: 10, unit: "weight" as UnitType, status: "ok" as const },
-      { id: "2", name: "Sugar", requiredQty: 3, availableQty: 2, unit: "weight" as UnitType, status: "insufficient" as const },
+      {
+        id: "2",
+        name: "Sugar",
+        requiredQty: 3,
+        availableQty: 2,
+        unit: "weight" as UnitType,
+        status: "insufficient" as const,
+      },
       { id: "3", name: "Butter", requiredQty: 2, availableQty: 5, unit: "package" as UnitType, status: "ok" as const },
       { id: "4", name: "Cream", requiredQty: 4, availableQty: 6, unit: "volume" as UnitType, status: "ok" as const },
       { id: "5", name: "Eggs", requiredQty: 20, availableQty: 30, unit: "count" as UnitType, status: "ok" as const },
@@ -47,7 +56,14 @@ const availableRecipes = [
     ingredients: [
       { id: "1", name: "Flour", requiredQty: 3, availableQty: 10, unit: "weight" as UnitType, status: "ok" as const },
       { id: "2", name: "Sugar", requiredQty: 2, availableQty: 2, unit: "weight" as UnitType, status: "low" as const },
-      { id: "3", name: "Cocoa Powder", requiredQty: 1, availableQty: 3, unit: "weight" as UnitType, status: "ok" as const },
+      {
+        id: "3",
+        name: "Cocoa Powder",
+        requiredQty: 1,
+        availableQty: 3,
+        unit: "weight" as UnitType,
+        status: "ok" as const,
+      },
       { id: "4", name: "Milk", requiredQty: 2, availableQty: 5, unit: "volume" as UnitType, status: "ok" as const },
     ],
   },
@@ -83,7 +99,7 @@ export default function OneTapProductionPage() {
   };
 
   return (
-    <div className="flex flex-col gap-6 @container">
+    <div className="@container flex flex-col gap-6">
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl font-bold tracking-tight">One-Tap Production</h1>
         <p className="text-muted-foreground">
@@ -122,9 +138,7 @@ export default function OneTapProductionPage() {
           <Card>
             <CardHeader>
               <CardTitle>Required Ingredients</CardTitle>
-              <CardDescription>
-                Take these exact quantities from inventory for this batch
-              </CardDescription>
+              <CardDescription>Take these exact quantities from inventory for this batch</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-3">
@@ -155,7 +169,7 @@ export default function OneTapProductionPage() {
                             </Badge>
                           )}
                         </div>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-muted-foreground text-sm">
                           Required: {ing.requiredQty} | Available: {ing.availableQty}
                         </p>
                       </div>
@@ -202,26 +216,16 @@ export default function OneTapProductionPage() {
                     min={0}
                     className="mt-1 text-lg"
                   />
-                  <p className="mt-1 text-sm text-muted-foreground">
+                  <p className="text-muted-foreground mt-1 text-sm">
                     Expected batch size: {currentRecipe.batchSize} units
                   </p>
                 </div>
 
                 <div className="flex gap-2">
-                  <Button
-                    variant="outline"
-                    onClick={handleYieldCheck}
-                    disabled={finishedQty === 0}
-                    className="flex-1"
-                  >
+                  <Button variant="outline" onClick={handleYieldCheck} disabled={finishedQty === 0} className="flex-1">
                     Check Yield
                   </Button>
-                  <Button
-                    onClick={handleFinish}
-                    disabled={finishedQty === 0}
-                    className="flex-1"
-                    size="lg"
-                  >
+                  <Button onClick={handleFinish} disabled={finishedQty === 0} className="flex-1" size="lg">
                     <Package className="mr-2 size-4" />
                     Finished {finishedQty > 0 ? finishedQty : ""} {finishedQty > 0 ? "Cakes" : ""}
                   </Button>
@@ -245,5 +249,3 @@ export default function OneTapProductionPage() {
     </div>
   );
 }
-
-

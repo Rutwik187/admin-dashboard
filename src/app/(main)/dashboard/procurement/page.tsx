@@ -1,22 +1,22 @@
 "use client";
 
-import { ShoppingCart, FileText, Camera } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
+
+import { ShoppingCart, FileText, Camera } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function ProcurementPage() {
   return (
-    <div className="flex flex-col gap-6 @container">
+    <div className="@container flex flex-col gap-6">
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl font-bold tracking-tight">Procurement Module</h1>
-        <p className="text-muted-foreground">
-          Manage raw material procurement, digital indents, and goods receipt
-        </p>
+        <p className="text-muted-foreground">Manage raw material procurement, digital indents, and goods receipt</p>
       </div>
 
       <div className="grid grid-cols-1 gap-4 @md:grid-cols-2">
-        <Card className="hover:shadow-md transition-shadow">
+        <Card className="transition-shadow hover:shadow-md">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <FileText className="size-5" />
@@ -33,7 +33,7 @@ export default function ProcurementPage() {
           </CardContent>
         </Card>
 
-        <Card className="hover:shadow-md transition-shadow">
+        <Card className="transition-shadow hover:shadow-md">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Camera className="size-5" />
@@ -53,5 +53,3 @@ export default function ProcurementPage() {
     </div>
   );
 }
-
-

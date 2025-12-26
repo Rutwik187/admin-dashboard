@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+
 import { Handshake, CheckCircle2, Clock, Package, Truck } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+
 import { StatusIndicator } from "@/components/inventory/status-indicator";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface HandshakeRecord {
@@ -65,11 +67,7 @@ export default function HandshakePage() {
 
   const acceptHandshake = (id: string) => {
     setHandshakes(
-      handshakes.map((h) =>
-        h.id === id
-          ? { ...h, status: "accepted", acceptedAt: new Date().toISOString() }
-          : h
-      )
+      handshakes.map((h) => (h.id === id ? { ...h, status: "accepted", acceptedAt: new Date().toISOString() } : h)),
     );
     // In real app, update stock: In-Transit → Outlet
   };
@@ -79,25 +77,17 @@ export default function HandshakePage() {
   const acceptedHandshakes = handshakes.filter((h) => h.status === "accepted");
 
   return (
-    <div className="flex flex-col gap-6 @container">
+    <div className="@container flex flex-col gap-6">
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl font-bold tracking-tight">Handshake (Digital Transfer)</h1>
-        <p className="text-muted-foreground">
-          Stock moves from Factory → In-Transit → Outlet without manual typing
-        </p>
+        <p className="text-muted-foreground">Stock moves from Factory → In-Transit → Outlet without manual typing</p>
       </div>
 
       <Tabs defaultValue="pending" className="w-full">
         <TabsList>
-          <TabsTrigger value="pending">
-            Pending Acceptance ({pendingHandshakes.length})
-          </TabsTrigger>
-          <TabsTrigger value="in-transit">
-            In Transit ({inTransitHandshakes.length})
-          </TabsTrigger>
-          <TabsTrigger value="accepted">
-            Accepted ({acceptedHandshakes.length})
-          </TabsTrigger>
+          <TabsTrigger value="pending">Pending Acceptance ({pendingHandshakes.length})</TabsTrigger>
+          <TabsTrigger value="in-transit">In Transit ({inTransitHandshakes.length})</TabsTrigger>
+          <TabsTrigger value="accepted">Accepted ({acceptedHandshakes.length})</TabsTrigger>
         </TabsList>
 
         <TabsContent value="pending" className="space-y-4">
@@ -124,11 +114,11 @@ export default function HandshakePage() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <p className="text-sm font-medium mb-2">Items:</p>
+                    <p className="mb-2 text-sm font-medium">Items:</p>
                     <div className="space-y-1">
                       {handshake.items.map((item, idx) => (
                         <div key={idx} className="flex items-center gap-2 text-sm">
-                          <Package className="size-4 text-muted-foreground" />
+                          <Package className="text-muted-foreground size-4" />
                           <span>
                             {item.name} - Qty: {item.quantity}
                           </span>
@@ -137,17 +127,10 @@ export default function HandshakePage() {
                     </div>
                   </div>
                   <div className="flex gap-2">
-                    <Button
-                      variant="outline"
-                      className="flex-1"
-                      onClick={() => acceptHandshake(handshake.id)}
-                    >
+                    <Button variant="outline" className="flex-1" onClick={() => acceptHandshake(handshake.id)}>
                       Reject
                     </Button>
-                    <Button
-                      className="flex-1"
-                      onClick={() => acceptHandshake(handshake.id)}
-                    >
+                    <Button className="flex-1" onClick={() => acceptHandshake(handshake.id)}>
                       <Handshake className="mr-2 size-4" />
                       Accept Transfer
                     </Button>
@@ -182,11 +165,11 @@ export default function HandshakePage() {
                 </CardHeader>
                 <CardContent>
                   <div>
-                    <p className="text-sm font-medium mb-2">Items:</p>
+                    <p className="mb-2 text-sm font-medium">Items:</p>
                     <div className="space-y-1">
                       {handshake.items.map((item, idx) => (
                         <div key={idx} className="flex items-center gap-2 text-sm">
-                          <Package className="size-4 text-muted-foreground" />
+                          <Package className="text-muted-foreground size-4" />
                           <span>
                             {item.name} - Qty: {item.quantity}
                           </span>
@@ -226,11 +209,11 @@ export default function HandshakePage() {
                 </CardHeader>
                 <CardContent>
                   <div>
-                    <p className="text-sm font-medium mb-2">Items (now in outlet stock):</p>
+                    <p className="mb-2 text-sm font-medium">Items (now in outlet stock):</p>
                     <div className="space-y-1">
                       {handshake.items.map((item, idx) => (
                         <div key={idx} className="flex items-center gap-2 text-sm">
-                          <Package className="size-4 text-muted-foreground" />
+                          <Package className="text-muted-foreground size-4" />
                           <span>
                             {item.name} - Qty: {item.quantity}
                           </span>
@@ -247,5 +230,3 @@ export default function HandshakePage() {
     </div>
   );
 }
-
-

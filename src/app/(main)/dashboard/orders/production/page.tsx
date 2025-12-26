@@ -1,14 +1,16 @@
 "use client";
 
 import { useState } from "react";
+
 import { Factory, CheckCircle2, Clock, Camera, Image as ImageIcon } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+
 import { StatusIndicator } from "@/components/inventory/status-indicator";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface ProductionOrder {
   id: string;
@@ -116,10 +118,8 @@ export default function ProductionPage() {
   const markOrderComplete = (orderId: string) => {
     setOrders(
       orders.map((order) =>
-        order.id === orderId
-          ? { ...order, status: "completed", completedAt: new Date().toISOString() }
-          : order
-      )
+        order.id === orderId ? { ...order, status: "completed", completedAt: new Date().toISOString() } : order,
+      ),
     );
     // In real app, send to packaging department
   };
@@ -129,7 +129,7 @@ export default function ProductionPage() {
   const completedOrders = orders.filter((o) => o.status === "completed");
 
   return (
-    <div className="flex flex-col gap-6 @container">
+    <div className="@container flex flex-col gap-6">
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl font-bold tracking-tight">Production Department</h1>
         <p className="text-muted-foreground">
@@ -162,15 +162,9 @@ export default function ProductionPage() {
       {/* Orders Tabs */}
       <Tabs defaultValue="pending" className="w-full">
         <TabsList>
-          <TabsTrigger value="pending">
-            Pending ({pendingOrders.length})
-          </TabsTrigger>
-          <TabsTrigger value="in-progress">
-            In Progress ({inProgressOrders.length})
-          </TabsTrigger>
-          <TabsTrigger value="completed">
-            Completed ({completedOrders.length})
-          </TabsTrigger>
+          <TabsTrigger value="pending">Pending ({pendingOrders.length})</TabsTrigger>
+          <TabsTrigger value="in-progress">In Progress ({inProgressOrders.length})</TabsTrigger>
+          <TabsTrigger value="completed">Completed ({completedOrders.length})</TabsTrigger>
         </TabsList>
 
         <TabsContent value="pending" className="space-y-4">
@@ -182,7 +176,7 @@ export default function ProductionPage() {
             </Card>
           ) : (
             pendingOrders.map((order) => (
-              <Card key={order.id} className="hover:shadow-md transition-shadow">
+              <Card key={order.id} className="transition-shadow hover:shadow-md">
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <div>
@@ -190,9 +184,7 @@ export default function ProductionPage() {
                         <Factory className="size-5" />
                         Order #{order.orderNumber}
                       </CardTitle>
-                      <CardDescription>
-                        Created: {new Date(order.createdAt).toLocaleString()}
-                      </CardDescription>
+                      <CardDescription>Created: {new Date(order.createdAt).toLocaleString()}</CardDescription>
                     </div>
                     <StatusIndicator status="action-needed" label="Pending" />
                   </div>
@@ -200,33 +192,22 @@ export default function ProductionPage() {
                 <CardContent className="space-y-4">
                   <div className="space-y-3">
                     {order.items.map((item) => (
-                      <div
-                        key={item.id}
-                        className="flex items-center gap-4 rounded-lg border p-3"
-                      >
+                      <div key={item.id} className="flex items-center gap-4 rounded-lg border p-3">
                         {item.image && (
                           <div className="relative size-16 shrink-0 overflow-hidden rounded-lg border">
-                            <img
-                              src={item.image}
-                              alt={item.productName}
-                              className="h-full w-full object-cover"
-                            />
+                            <img src={item.image} alt={item.productName} className="h-full w-full object-cover" />
                           </div>
                         )}
                         <div className="flex-1">
                           <h4 className="font-medium">{item.productName}</h4>
-                          <p className="text-sm text-muted-foreground">Quantity: {item.quantity}</p>
+                          <p className="text-muted-foreground text-sm">Quantity: {item.quantity}</p>
                         </div>
                       </div>
                     ))}
                   </div>
                   <Button
                     onClick={() => {
-                      setOrders(
-                        orders.map((o) =>
-                          o.id === order.id ? { ...o, status: "in-progress" } : o
-                        )
-                      );
+                      setOrders(orders.map((o) => (o.id === order.id ? { ...o, status: "in-progress" } : o)));
                     }}
                     className="w-full"
                   >
@@ -255,9 +236,7 @@ export default function ProductionPage() {
                         <Factory className="size-5" />
                         Order #{order.orderNumber}
                       </CardTitle>
-                      <CardDescription>
-                        Started: {new Date(order.createdAt).toLocaleString()}
-                      </CardDescription>
+                      <CardDescription>Started: {new Date(order.createdAt).toLocaleString()}</CardDescription>
                     </div>
                     <StatusIndicator status="action-needed" label="In Progress" />
                   </div>
@@ -267,37 +246,26 @@ export default function ProductionPage() {
                     {order.items.map((item) => {
                       const productionImage = productionImages[order.id]?.[item.id];
                       return (
-                        <div
-                          key={item.id}
-                          className="rounded-lg border p-4 space-y-3"
-                        >
+                        <div key={item.id} className="space-y-3 rounded-lg border p-4">
                           <div className="flex items-center gap-4">
                             {item.image && (
                               <div className="relative size-20 shrink-0 overflow-hidden rounded-lg border">
-                                <img
-                                  src={item.image}
-                                  alt={item.productName}
-                                  className="h-full w-full object-cover"
-                                />
+                                <img src={item.image} alt={item.productName} className="h-full w-full object-cover" />
                               </div>
                             )}
                             <div className="flex-1">
-                              <h4 className="font-semibold text-lg">{item.productName}</h4>
-                              <p className="text-sm text-muted-foreground">Quantity: {item.quantity}</p>
+                              <h4 className="text-lg font-semibold">{item.productName}</h4>
+                              <p className="text-muted-foreground text-sm">Quantity: {item.quantity}</p>
                             </div>
                           </div>
                           <div>
-                            <Label className="text-sm font-medium mb-2 block">
+                            <Label className="mb-2 block text-sm font-medium">
                               Production Image (Upload photo of completed items)
                             </Label>
                             {productionImage ? (
                               <div className="space-y-2">
                                 <div className="relative aspect-square w-full max-w-xs overflow-hidden rounded-lg border">
-                                  <img
-                                    src={productionImage}
-                                    alt="Production"
-                                    className="h-full w-full object-cover"
-                                  />
+                                  <img src={productionImage} alt="Production" className="h-full w-full object-cover" />
                                 </div>
                                 <Button
                                   variant="outline"
@@ -327,11 +295,7 @@ export default function ProductionPage() {
                     onClick={() => markOrderComplete(order.id)}
                     className="w-full"
                     size="lg"
-                    disabled={
-                      !order.items.every(
-                        (item) => productionImages[order.id]?.[item.id]
-                      )
-                    }
+                    disabled={!order.items.every((item) => productionImages[order.id]?.[item.id])}
                   >
                     <CheckCircle2 className="mr-2 size-4" />
                     Mark Order as Completed
@@ -369,10 +333,7 @@ export default function ProductionPage() {
                 <CardContent>
                   <div className="space-y-3">
                     {order.items.map((item) => (
-                      <div
-                        key={item.id}
-                        className="flex items-center gap-4 rounded-lg border p-3 bg-background"
-                      >
+                      <div key={item.id} className="bg-background flex items-center gap-4 rounded-lg border p-3">
                         {item.productionImage && (
                           <div className="relative size-16 shrink-0 overflow-hidden rounded-lg border">
                             <img
@@ -384,7 +345,7 @@ export default function ProductionPage() {
                         )}
                         <div className="flex-1">
                           <h4 className="font-medium">{item.productName}</h4>
-                          <p className="text-sm text-muted-foreground">Quantity: {item.quantity}</p>
+                          <p className="text-muted-foreground text-sm">Quantity: {item.quantity}</p>
                         </div>
                         <Badge variant="outline" className="border-green-500 text-green-600">
                           Ready for Packaging
@@ -401,5 +362,3 @@ export default function ProductionPage() {
     </div>
   );
 }
-
-

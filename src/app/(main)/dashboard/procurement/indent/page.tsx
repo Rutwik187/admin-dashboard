@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
+
 import { AlertTriangle, Send, Package, Plus } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+
 import { StatusIndicator } from "@/components/inventory/status-indicator";
 import { UnitIcon, type UnitType } from "@/components/inventory/unit-icons";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
@@ -84,7 +86,7 @@ export default function DigitalIndentPage() {
   const lowStockItems = items.filter((item) => item.status === "low");
 
   return (
-    <div className="flex flex-col gap-6 @container">
+    <div className="@container flex flex-col gap-6">
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl font-bold tracking-tight">Digital Indent</h1>
         <p className="text-muted-foreground">
@@ -148,7 +150,7 @@ export default function DigitalIndentPage() {
                     isSelected ? "border-primary bg-primary/5" : ""
                   } ${isLow ? "border-orange-500/50 bg-orange-500/5" : ""}`}
                 >
-                  <div className="flex items-center gap-4 flex-1">
+                  <div className="flex flex-1 items-center gap-4">
                     <input
                       type="checkbox"
                       checked={isSelected}
@@ -171,7 +173,7 @@ export default function DigitalIndentPage() {
                             </Badge>
                           )}
                         </div>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-muted-foreground text-sm">
                           Current: {item.currentStock} | Min: {item.minStock} | Required: {item.required}
                         </p>
                       </div>
@@ -212,5 +214,3 @@ export default function DigitalIndentPage() {
     </div>
   );
 }
-
-

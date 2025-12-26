@@ -1,14 +1,16 @@
 "use client";
 
 import { useState } from "react";
+
 import { Truck, Package, CheckCircle2, X, GripVertical } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+
 import { StatusIndicator } from "@/components/inventory/status-indicator";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 interface StockItem {
   id: string;
@@ -61,7 +63,7 @@ export default function DigitalChallanPage() {
   };
 
   return (
-    <div className="flex flex-col gap-6 @container">
+    <div className="@container flex flex-col gap-6">
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl font-bold tracking-tight">Digital Challan (Manifest)</h1>
         <p className="text-muted-foreground">
@@ -104,20 +106,20 @@ export default function DigitalChallanPage() {
             </CardHeader>
             <CardContent>
               {factoryItems.length === 0 ? (
-                <p className="text-muted-foreground text-center py-8">No items available</p>
+                <p className="text-muted-foreground py-8 text-center">No items available</p>
               ) : (
                 <div className="grid grid-cols-1 gap-3 @md:grid-cols-2 @lg:grid-cols-3">
                   {factoryItems.map((item) => (
                     <div
                       key={item.id}
                       onClick={() => moveToVan(item.id)}
-                      className="flex items-center justify-between rounded-lg border p-4 cursor-pointer hover:bg-accent transition-colors"
+                      className="hover:bg-accent flex cursor-pointer items-center justify-between rounded-lg border p-4 transition-colors"
                     >
                       <div className="flex items-center gap-3">
-                        <Package className="size-5 text-muted-foreground" />
+                        <Package className="text-muted-foreground size-5" />
                         <div>
                           <p className="font-medium">{item.name}</p>
-                          <p className="text-sm text-muted-foreground">Qty: {item.quantity}</p>
+                          <p className="text-muted-foreground text-sm">Qty: {item.quantity}</p>
                         </div>
                       </div>
                       <Button variant="ghost" size="sm">
@@ -137,32 +139,25 @@ export default function DigitalChallanPage() {
                 <Truck className="size-5" />
                 {currentVan?.name} Contents
               </CardTitle>
-              <CardDescription>
-                Items loaded in van. Driver: {currentVan?.driver}
-              </CardDescription>
+              <CardDescription>Items loaded in van. Driver: {currentVan?.driver}</CardDescription>
             </CardHeader>
             <CardContent>
               {vanItems.length === 0 ? (
-                <div className="text-center py-12 border-2 border-dashed rounded-lg">
-                  <Package className="size-12 mx-auto text-muted-foreground mb-2" />
+                <div className="rounded-lg border-2 border-dashed py-12 text-center">
+                  <Package className="text-muted-foreground mx-auto mb-2 size-12" />
                   <p className="text-muted-foreground">No items in van yet</p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Click items above to add them
-                  </p>
+                  <p className="text-muted-foreground mt-1 text-sm">Click items above to add them</p>
                 </div>
               ) : (
                 <div className="space-y-3">
                   {vanItems.map((item) => (
-                    <div
-                      key={item.id}
-                      className="flex items-center justify-between rounded-lg border p-4 bg-accent/50"
-                    >
+                    <div key={item.id} className="bg-accent/50 flex items-center justify-between rounded-lg border p-4">
                       <div className="flex items-center gap-3">
-                        <GripVertical className="size-5 text-muted-foreground" />
-                        <Package className="size-5 text-muted-foreground" />
+                        <GripVertical className="text-muted-foreground size-5" />
+                        <Package className="text-muted-foreground size-5" />
                         <div>
                           <p className="font-medium">{item.name}</p>
-                          <p className="text-sm text-muted-foreground">Qty: {item.quantity}</p>
+                          <p className="text-muted-foreground text-sm">Qty: {item.quantity}</p>
                         </div>
                       </div>
                       <Button
@@ -185,15 +180,13 @@ export default function DigitalChallanPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Dispatch Van</CardTitle>
-                <CardDescription>
-                  Once dispatched, driver cannot leave until Outlet Manager accepts
-                </CardDescription>
+                <CardDescription>Once dispatched, driver cannot leave until Outlet Manager accepts</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <div className="rounded-lg border p-4 space-y-2">
+                  <div className="space-y-2 rounded-lg border p-4">
                     <p className="font-medium">Summary:</p>
-                    <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
+                    <ul className="text-muted-foreground list-inside list-disc space-y-1 text-sm">
                       <li>Van: {currentVan?.name}</li>
                       <li>Driver: {currentVan?.driver}</li>
                       <li>Items: {vanItems.length}</li>
@@ -227,5 +220,3 @@ export default function DigitalChallanPage() {
     </div>
   );
 }
-
-

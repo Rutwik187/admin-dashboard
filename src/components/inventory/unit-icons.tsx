@@ -1,4 +1,5 @@
 import { Scale, Beaker, Box, Package } from "lucide-react";
+
 import { cn } from "@/lib/utils";
 
 export type UnitType = "weight" | "volume" | "count" | "package";
@@ -28,5 +29,3 @@ export function UnitIcon({ type, className, size = 20 }: UnitIconProps) {
       return <Package {...iconProps} />;
   }
 }
-
-

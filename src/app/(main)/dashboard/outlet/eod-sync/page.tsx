@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+
 import { Calendar, RefreshCw, CheckCircle2, TrendingDown, TrendingUp } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+
 import { StatusIndicator } from "@/components/inventory/status-indicator";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface StockItem {
@@ -33,15 +35,15 @@ export default function EODSyncPage() {
     setIsSyncing(true);
     // Simulate API call to billing software
     await new Promise((resolve) => setTimeout(resolve, 2000));
-    
+
     // Calculate closing stock: Opening + Received - Sold
     setStock(
       stock.map((item) => ({
         ...item,
         closingStock: item.openingStock + item.received - item.sold,
-      }))
+      })),
     );
-    
+
     setIsSyncing(false);
     setIsSynced(true);
   };
@@ -50,7 +52,7 @@ export default function EODSyncPage() {
   const totalWastage = stock.filter((item) => item.closingStock < item.openingStock).length;
 
   return (
-    <div className="flex flex-col gap-6 @container">
+    <div className="@container flex flex-col gap-6">
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl font-bold tracking-tight">End of Day (EOD) Sync</h1>
         <p className="text-muted-foreground">
@@ -71,18 +73,13 @@ export default function EODSyncPage() {
           <div className="flex items-center justify-between">
             <div>
               <p className="font-medium">Last Sync</p>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-muted-foreground text-sm">
                 {isSynced ? new Date().toLocaleString() : "Not synced today"}
               </p>
             </div>
             {isSynced && <StatusIndicator status="completed" label="Synced" />}
           </div>
-          <Button
-            onClick={handleSync}
-            disabled={isSyncing || isSynced}
-            className="w-full"
-            size="lg"
-          >
+          <Button onClick={handleSync} disabled={isSyncing || isSynced} className="w-full" size="lg">
             {isSyncing ? (
               <>
                 <RefreshCw className="mr-2 size-4 animate-spin" />
@@ -137,7 +134,7 @@ export default function EODSyncPage() {
             <div className="space-y-3">
               {stock.map((item) => (
                 <div key={item.id} className="rounded-lg border p-4">
-                  <div className="flex items-center justify-between mb-2">
+                  <div className="mb-2 flex items-center justify-between">
                     <h3 className="font-semibold">{item.name}</h3>
                     <Badge variant="outline">Closing: {item.closingStock}</Badge>
                   </div>
@@ -168,5 +165,3 @@ export default function EODSyncPage() {
     </div>
   );
 }
-
-

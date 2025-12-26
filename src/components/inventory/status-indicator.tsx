@@ -1,5 +1,6 @@
-import { cn } from "@/lib/utils";
 import { AlertCircle, CheckCircle2, Clock } from "lucide-react";
+
+import { cn } from "@/lib/utils";
 
 export type StatusType = "action-needed" | "completed" | "critical" | "pending";
 
@@ -43,7 +44,7 @@ export function StatusIndicator({ status, label, className, pulse = false }: Sta
         "inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 text-sm font-medium",
         config.bg,
         pulse && status === "critical" && "animate-pulse",
-        className
+        className,
       )}
     >
       <Icon className={cn("size-4", config.iconColor)} />
@@ -51,5 +52,3 @@ export function StatusIndicator({ status, label, className, pulse = false }: Sta
     </div>
   );
 }
-
-

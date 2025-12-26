@@ -1,13 +1,15 @@
 "use client";
 
 import { useState } from "react";
+
 import { Boxes, CheckCircle2, Package, Clock, TrendingUp } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+
 import { StatusIndicator } from "@/components/inventory/status-indicator";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface PackagingOrder {
   id: string;
@@ -91,10 +93,7 @@ export default function PackagingPage() {
             ...order,
             items: order.items.map((item) => {
               if (item.id === itemId) {
-                const newPacked = Math.max(
-                  0,
-                  Math.min(item.quantity, item.packedQuantity + delta)
-                );
+                const newPacked = Math.max(0, Math.min(item.quantity, item.packedQuantity + delta));
                 return { ...item, packedQuantity: newPacked };
               }
               return item;
@@ -103,7 +102,7 @@ export default function PackagingPage() {
           };
         }
         return order;
-      })
+      }),
     );
   };
 
@@ -120,8 +119,8 @@ export default function PackagingPage() {
               status: "completed",
               completedAt: new Date().toISOString(),
             }
-          : order
-      )
+          : order,
+      ),
     );
   };
 
@@ -130,7 +129,7 @@ export default function PackagingPage() {
   const completedOrders = orders.filter((o) => o.status === "completed");
 
   return (
-    <div className="flex flex-col gap-6 @container">
+    <div className="@container flex flex-col gap-6">
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl font-bold tracking-tight">Packaging Department</h1>
         <p className="text-muted-foreground">
@@ -163,15 +162,9 @@ export default function PackagingPage() {
       {/* Orders Tabs */}
       <Tabs defaultValue="packaging" className="w-full">
         <TabsList>
-          <TabsTrigger value="pending">
-            Pending ({pendingOrders.length})
-          </TabsTrigger>
-          <TabsTrigger value="packaging">
-            In Progress ({packagingOrders.length})
-          </TabsTrigger>
-          <TabsTrigger value="completed">
-            Completed ({completedOrders.length})
-          </TabsTrigger>
+          <TabsTrigger value="pending">Pending ({pendingOrders.length})</TabsTrigger>
+          <TabsTrigger value="packaging">In Progress ({packagingOrders.length})</TabsTrigger>
+          <TabsTrigger value="completed">Completed ({completedOrders.length})</TabsTrigger>
         </TabsList>
 
         <TabsContent value="pending" className="space-y-4">
@@ -183,7 +176,7 @@ export default function PackagingPage() {
             </Card>
           ) : (
             pendingOrders.map((order) => (
-              <Card key={order.id} className="hover:shadow-md transition-shadow">
+              <Card key={order.id} className="transition-shadow hover:shadow-md">
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <div>
@@ -191,9 +184,7 @@ export default function PackagingPage() {
                         <Boxes className="size-5" />
                         Order #{order.orderNumber}
                       </CardTitle>
-                      <CardDescription>
-                        Received: {new Date(order.createdAt).toLocaleString()}
-                      </CardDescription>
+                      <CardDescription>Received: {new Date(order.createdAt).toLocaleString()}</CardDescription>
                     </div>
                     <StatusIndicator status="action-needed" label="Pending" />
                   </div>
@@ -201,22 +192,15 @@ export default function PackagingPage() {
                 <CardContent className="space-y-4">
                   <div className="space-y-3">
                     {order.items.map((item) => (
-                      <div
-                        key={item.id}
-                        className="flex items-center gap-4 rounded-lg border p-3"
-                      >
+                      <div key={item.id} className="flex items-center gap-4 rounded-lg border p-3">
                         {item.image && (
                           <div className="relative size-16 shrink-0 overflow-hidden rounded-lg border">
-                            <img
-                              src={item.image}
-                              alt={item.productName}
-                              className="h-full w-full object-cover"
-                            />
+                            <img src={item.image} alt={item.productName} className="h-full w-full object-cover" />
                           </div>
                         )}
                         <div className="flex-1">
                           <h4 className="font-medium">{item.productName}</h4>
-                          <p className="text-sm text-muted-foreground">
+                          <p className="text-muted-foreground text-sm">
                             Quantity: {item.quantity} | Packed: {item.packedQuantity}
                           </p>
                         </div>
@@ -225,11 +209,7 @@ export default function PackagingPage() {
                   </div>
                   <Button
                     onClick={() => {
-                      setOrders(
-                        orders.map((o) =>
-                          o.id === order.id ? { ...o, status: "packaging" } : o
-                        )
-                      );
+                      setOrders(orders.map((o) => (o.id === order.id ? { ...o, status: "packaging" } : o)));
                     }}
                     className="w-full"
                   >
@@ -286,23 +266,16 @@ export default function PackagingPage() {
                       {order.items.map((item) => {
                         const itemProgress = (item.packedQuantity / item.quantity) * 100;
                         return (
-                          <div
-                            key={item.id}
-                            className="rounded-lg border p-4 space-y-3"
-                          >
+                          <div key={item.id} className="space-y-3 rounded-lg border p-4">
                             <div className="flex items-center gap-4">
                               {item.image && (
                                 <div className="relative size-20 shrink-0 overflow-hidden rounded-lg border">
-                                  <img
-                                    src={item.image}
-                                    alt={item.productName}
-                                    className="h-full w-full object-cover"
-                                  />
+                                  <img src={item.image} alt={item.productName} className="h-full w-full object-cover" />
                                 </div>
                               )}
                               <div className="flex-1">
-                                <h4 className="font-semibold text-lg">{item.productName}</h4>
-                                <p className="text-sm text-muted-foreground">
+                                <h4 className="text-lg font-semibold">{item.productName}</h4>
+                                <p className="text-muted-foreground text-sm">
                                   Packed: {item.packedQuantity} / {item.quantity}
                                 </p>
                                 <Progress value={itemProgress} className="mt-2 h-1.5" />
@@ -336,11 +309,7 @@ export default function PackagingPage() {
                     </div>
 
                     {isComplete && (
-                      <Button
-                        onClick={() => markOrderComplete(order.id)}
-                        className="w-full"
-                        size="lg"
-                      >
+                      <Button onClick={() => markOrderComplete(order.id)} className="w-full" size="lg">
                         <CheckCircle2 className="mr-2 size-4" />
                         Mark Order as Completed
                       </Button>
@@ -379,22 +348,15 @@ export default function PackagingPage() {
                 <CardContent>
                   <div className="space-y-3">
                     {order.items.map((item) => (
-                      <div
-                        key={item.id}
-                        className="flex items-center gap-4 rounded-lg border p-3 bg-background"
-                      >
+                      <div key={item.id} className="bg-background flex items-center gap-4 rounded-lg border p-3">
                         {item.image && (
                           <div className="relative size-16 shrink-0 overflow-hidden rounded-lg border">
-                            <img
-                              src={item.image}
-                              alt={item.productName}
-                              className="h-full w-full object-cover"
-                            />
+                            <img src={item.image} alt={item.productName} className="h-full w-full object-cover" />
                           </div>
                         )}
                         <div className="flex-1">
                           <h4 className="font-medium">{item.productName}</h4>
-                          <p className="text-sm text-muted-foreground">
+                          <p className="text-muted-foreground text-sm">
                             Packed: {item.packedQuantity} / {item.quantity}
                           </p>
                         </div>
@@ -414,5 +376,3 @@ export default function PackagingPage() {
     </div>
   );
 }
-
-
