@@ -82,7 +82,7 @@ export const columns: ColumnDef<Product>[] = [
     header: ({ column }) => {
       return (
         <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
-          Prep Time
+          Baking Time
           <ArrowUpDown className="ml-2 size-4" />
         </Button>
       );

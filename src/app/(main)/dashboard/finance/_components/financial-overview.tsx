@@ -47,7 +47,7 @@ export function FinancialOverview() {
     <Card className="shadow-xs">
       <CardHeader>
         <CardTitle>Financial Overview</CardTitle>
-        <CardDescription>Track your restaurant's revenue, expenses, and profit at a glance.</CardDescription>
+        <CardDescription>Track your bakery's revenue, expenses, ingredient costs, and profit at a glance.</CardDescription>
         <CardAction>
           <Select defaultValue="last-year">
             <SelectTrigger>

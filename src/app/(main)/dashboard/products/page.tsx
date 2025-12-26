@@ -23,9 +23,9 @@ export default function Page() {
       {/* Header */}
       <div className="flex flex-col gap-4 @3xl:flex-row @3xl:items-center @3xl:justify-between">
         <div className="flex flex-col gap-2">
-          <h1 className="text-3xl font-bold tracking-tight">Product Management</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Bakery Product Management</h1>
           <p className="text-muted-foreground">
-            Manage your menu items, pricing, availability, and track product performance
+            Manage your bakery items, cakes, pastries, bread, pricing, availability, and track product performance
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -36,11 +36,11 @@ export default function Page() {
           </Button>
           <Button variant="outline">
             <Download className="mr-2 size-4" />
-            Export Menu
+            Export Catalog
           </Button>
           <Button>
             <Plus className="mr-2 size-4" />
-            Add Product
+            Add Bakery Item
           </Button>
         </div>
       </div>

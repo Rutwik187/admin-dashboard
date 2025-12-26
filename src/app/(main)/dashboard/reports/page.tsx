@@ -13,37 +13,37 @@ const reportTemplates = [
   {
     id: 1,
     name: "Daily Sales Summary",
-    description: "Complete breakdown of daily sales and transactions",
+    description: "Complete breakdown of daily bakery sales and transactions",
     icon: FileText,
   },
   {
     id: 2,
     name: "Monthly Financial Report",
-    description: "Comprehensive monthly financial performance analysis",
+    description: "Comprehensive monthly financial performance analysis for bakery operations",
     icon: FileText,
   },
   {
     id: 3,
     name: "Inventory Status Report",
-    description: "Current inventory levels and reorder recommendations",
+    description: "Current raw material inventory levels and reorder recommendations",
     icon: FileText,
   },
   {
     id: 4,
     name: "Supplier Performance",
-    description: "Analysis of supplier delivery times and quality",
+    description: "Analysis of supplier delivery times, quality, and pricing for bakery ingredients",
     icon: FileText,
   },
   {
     id: 5,
     name: "Product Performance",
-    description: "Best and worst performing menu items",
+    description: "Best and worst performing bakery items (cakes, pastries, bread)",
     icon: FileText,
   },
   {
     id: 6,
-    name: "Expense Analysis",
-    description: "Detailed breakdown of operational expenses",
+    name: "Wastage & Expiry Report",
+    description: "Detailed breakdown of product wastage, expiry tracking, and FEFO compliance",
     icon: FileText,
   },
 ];
@@ -54,9 +54,9 @@ export default function Page() {
       {/* Header */}
       <div className="flex flex-col gap-4 @3xl:flex-row @3xl:items-center @3xl:justify-between">
         <div className="flex flex-col gap-2">
-          <h1 className="text-3xl font-bold tracking-tight">Reports & Analytics</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Bakery Reports & Analytics</h1>
           <p className="text-muted-foreground">
-            Generate comprehensive reports and analyze your restaurant's performance
+            Generate comprehensive reports and analyze your bakery's performance, sales, and inventory
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -97,23 +97,23 @@ export default function Page() {
             <div className="space-y-2">
               <div className="flex items-center justify-between text-sm">
                 <span className="text-muted-foreground">Peak Hours</span>
-                <span className="font-medium">12-2 PM, 6-8 PM</span>
+                <span className="font-medium">8-10 AM, 4-7 PM</span>
               </div>
               <div className="flex items-center justify-between text-sm">
                 <span className="text-muted-foreground">Busiest Day</span>
-                <span className="font-medium">Saturday</span>
+                <span className="font-medium">Sunday</span>
               </div>
               <div className="flex items-center justify-between text-sm">
                 <span className="text-muted-foreground">Top Category</span>
-                <span className="font-medium">Burgers</span>
+                <span className="font-medium">Cakes</span>
               </div>
               <div className="flex items-center justify-between text-sm">
                 <span className="text-muted-foreground">Customer Rating</span>
-                <span className="font-medium">4.6 / 5.0</span>
+                <span className="font-medium">4.8 / 5.0</span>
               </div>
               <div className="flex items-center justify-between text-sm">
                 <span className="text-muted-foreground">Repeat Customers</span>
-                <span className="font-medium">68%</span>
+                <span className="font-medium">72%</span>
               </div>
             </div>
           </CardContent>

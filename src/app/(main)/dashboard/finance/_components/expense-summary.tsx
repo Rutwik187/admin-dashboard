@@ -8,11 +8,11 @@ import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "
 import { Separator } from "@/components/ui/separator";
 import { formatCurrency } from "@/lib/utils";
 
-const chartData = [{ period: "last-week", groceries: 380, transport: 120, other: 80 }];
+const chartData = [{ period: "last-week", ingredients: 580, transport: 120, other: 150 }];
 
 const chartConfig = {
-  groceries: {
-    label: "Groceries",
+  ingredients: {
+    label: "Raw Materials",
     color: "var(--chart-1)",
   },
   transport: {
@@ -26,7 +26,7 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export function ExpenseSummary() {
-  const totalExpenses = chartData.length ? chartData[0].groceries + chartData[0].transport + chartData[0].other : 0;
+  const totalExpenses = chartData.length ? chartData[0].ingredients + chartData[0].transport + chartData[0].other : 0;
   return (
     <Card>
       <CardHeader>
@@ -82,10 +82,10 @@ export function ExpenseSummary() {
                 className="stroke-card stroke-4"
               />
               <RadialBar
-                dataKey="groceries"
+                dataKey="ingredients"
                 stackId="a"
                 cornerRadius={4}
-                fill="var(--color-groceries)"
+                fill="var(--color-ingredients)"
                 className="stroke-card stroke-4"
               />
             </RadialBarChart>
@@ -98,8 +98,8 @@ export function ExpenseSummary() {
               <ShoppingBasket className="stroke-chart-1 size-5" />
             </div>
             <div className="space-y-0.5 text-center">
-              <p className="text-muted-foreground text-xs uppercase">Groceries</p>
-              <p className="font-medium tabular-nums">{formatCurrency(chartData[0].groceries, { noDecimals: true })}</p>
+              <p className="text-muted-foreground text-xs uppercase">Raw Materials</p>
+              <p className="font-medium tabular-nums">{formatCurrency(chartData[0].ingredients, { noDecimals: true })}</p>
             </div>
           </div>
           <Separator orientation="vertical" className="!h-auto" />
@@ -124,7 +124,7 @@ export function ExpenseSummary() {
           </div>
         </div>
         <span className="text-muted-foreground text-xs tabular-nums">
-          Weekly spending is capped at {formatCurrency(2000, { noDecimals: true })}
+          Weekly ingredient spending is capped at {formatCurrency(3000, { noDecimals: true })}
         </span>
       </CardContent>
     </Card>

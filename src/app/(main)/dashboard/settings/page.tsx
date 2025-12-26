@@ -10,8 +10,8 @@ const settingsSections = [
   {
     id: 1,
     icon: Users,
-    title: "Restaurant Profile",
-    description: "Update your restaurant information, logo, and contact details",
+    title: "Bakery Profile",
+    description: "Update your bakery information, logo, and contact details",
     action: "Manage",
   },
   {
@@ -72,7 +72,7 @@ export default function Page() {
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl font-bold tracking-tight">Settings</h1>
         <p className="text-muted-foreground">
-          Manage your restaurant settings, preferences, and system configuration
+          Manage your bakery settings, preferences, and system configuration
         </p>
       </div>
 
@@ -80,14 +80,14 @@ export default function Page() {
       <Card>
         <CardHeader>
           <CardTitle>General Settings</CardTitle>
-          <CardDescription>Basic restaurant and system settings</CardDescription>
+          <CardDescription>Basic bakery and system settings</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <div>
-                <h4 className="font-medium">Restaurant Name</h4>
-                <p className="text-muted-foreground text-sm">The Gourmet Kitchen</p>
+                <h4 className="font-medium">Bakery Name</h4>
+                <p className="text-muted-foreground text-sm">Aamchi Mumbai</p>
               </div>
               <Button variant="outline" size="sm">
                 Edit
@@ -97,7 +97,7 @@ export default function Page() {
             <div className="flex items-center justify-between">
               <div>
                 <h4 className="font-medium">Business Address</h4>
-                <p className="text-muted-foreground text-sm">123 Main Street, City, State 12345</p>
+                <p className="text-muted-foreground text-sm">Mumbai, Maharashtra, India</p>
               </div>
               <Button variant="outline" size="sm">
                 Edit
@@ -107,7 +107,7 @@ export default function Page() {
             <div className="flex items-center justify-between">
               <div>
                 <h4 className="font-medium">Contact Email</h4>
-                <p className="text-muted-foreground text-sm">contact@gourmetkitchen.com</p>
+                <p className="text-muted-foreground text-sm">contact@aamchimumbai.com</p>
               </div>
               <Button variant="outline" size="sm">
                 Edit
@@ -117,7 +117,7 @@ export default function Page() {
             <div className="flex items-center justify-between">
               <div>
                 <h4 className="font-medium">Phone Number</h4>
-                <p className="text-muted-foreground text-sm">(555) 123-4567</p>
+                <p className="text-muted-foreground text-sm">+91 98765 43210</p>
               </div>
               <Button variant="outline" size="sm">
                 Edit
@@ -162,7 +162,7 @@ export default function Page() {
       <Card>
         <CardHeader>
           <CardTitle>Operating Hours</CardTitle>
-          <CardDescription>Set your restaurant's operating hours</CardDescription>
+          <CardDescription>Set your bakery's operating hours</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
@@ -208,7 +208,7 @@ export default function Page() {
             <div className="flex items-center justify-between">
               <div>
                 <h4 className="font-medium">Delete All Data</h4>
-                <p className="text-muted-foreground text-sm">Permanently delete all restaurant data</p>
+                <p className="text-muted-foreground text-sm">Permanently delete all bakery data</p>
               </div>
               <Button variant="destructive" size="sm">
                 Delete

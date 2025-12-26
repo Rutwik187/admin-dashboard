@@ -7,7 +7,7 @@ export default function Page() {
   return (
     <div className="@container/main flex flex-col gap-4 md:gap-6">
       <div className="flex flex-col gap-2">
-        <h1 className="text-3xl font-bold tracking-tight">Restaurant Overview</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Aamchi Mumbai Overview</h1>
         <p className="text-muted-foreground">
           Monitor daily operations, track inventory levels, and analyze revenue performance
         </p>

@@ -10,66 +10,66 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 const staffMembers = [
   {
     id: 1,
-    name: "John Smith",
-    role: "Head Chef",
+    name: "Nikhil",
+    role: "Head Baker",
     department: "Kitchen",
-    email: "john.smith@restaurant.com",
-    phone: "(555) 123-4567",
+    email: "nikhil@aamchimumbai.com",
+    phone: "+91 98765 43210",
     status: "Active",
     hireDate: "2020-03-15",
     shift: "Morning",
   },
   {
     id: 2,
-    name: "Sarah Johnson",
-    role: "Sous Chef",
+    name: "Nikhil",
+    role: "Assistant Baker",
     department: "Kitchen",
-    email: "sarah.j@restaurant.com",
-    phone: "(555) 234-5678",
+    email: "nikhil2@aamchimumbai.com",
+    phone: "+91 98765 43211",
     status: "Active",
     hireDate: "2021-06-20",
     shift: "Evening",
   },
   {
     id: 3,
-    name: "Michael Brown",
-    role: "Restaurant Manager",
+    name: "Nikhil",
+    role: "Bakery Manager",
     department: "Management",
-    email: "m.brown@restaurant.com",
-    phone: "(555) 345-6789",
+    email: "nikhil3@aamchimumbai.com",
+    phone: "+91 98765 43212",
     status: "Active",
     hireDate: "2019-01-10",
     shift: "Full Day",
   },
   {
     id: 4,
-    name: "Emily Davis",
-    role: "Server",
+    name: "Nikhil",
+    role: "Counter Staff",
     department: "Front of House",
-    email: "emily.d@restaurant.com",
-    phone: "(555) 456-7890",
+    email: "nikhil4@aamchimumbai.com",
+    phone: "+91 98765 43213",
     status: "Active",
     hireDate: "2022-09-05",
     shift: "Evening",
   },
   {
     id: 5,
-    name: "David Wilson",
-    role: "Bartender",
-    department: "Bar",
-    email: "d.wilson@restaurant.com",
-    phone: "(555) 567-8901",
+    name: "Nikhil",
+    role: "Delivery Staff",
+    department: "Logistics",
+    email: "nikhil5@aamchimumbai.com",
+    phone: "+91 98765 43214",
     status: "Active",
     hireDate: "2021-11-12",
     shift: "Evening",
   },
   {
     id: 6,
-    name: "Lisa Anderson",
-    role: "Server",
+    name: "Nikhil",
+    role: "Counter Staff",
     department: "Front of House",
-    email: "lisa.a@restaurant.com",
-    phone: "(555) 678-9012",
+    email: "nikhil6@aamchimumbai.com",
+    phone: "+91 98765 43215",
     status: "On Leave",
     hireDate: "2023-02-28",
     shift: "Morning",
@@ -92,7 +92,7 @@ export default function Page() {
         <div className="flex flex-col gap-2">
           <h1 className="text-3xl font-bold tracking-tight">Staff Management</h1>
           <p className="text-muted-foreground">
-            Manage your restaurant staff, schedules, and employee information
+            Manage your bakery staff, schedules, and employee information
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -154,7 +154,7 @@ export default function Page() {
       <Card>
         <CardHeader>
           <CardTitle>Staff Members</CardTitle>
-          <CardDescription>All restaurant employees and their details</CardDescription>
+          <CardDescription>All bakery employees and their details</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 gap-4 @2xl:grid-cols-2">

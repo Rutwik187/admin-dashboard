@@ -9,6 +9,20 @@ import {
   Users,
   Settings,
   Fingerprint,
+  ShoppingCart,
+  ChefHat,
+  Truck,
+  Store,
+  Command,
+  FileText,
+  Camera,
+  WheatIcon,
+  PackageCheck,
+  ClipboardCheck,
+  TrendingUp,
+  AlertCircle,
+  Star,
+  Calendar,
   type LucideIcon,
 } from "lucide-react";
 
@@ -51,7 +65,59 @@ export const sidebarItems: NavGroup[] = [
   },
   {
     id: 2,
-    label: "Restaurant Management",
+    label: "Operational Zones",
+    items: [
+      {
+        title: "Procurement",
+        url: "/dashboard/procurement",
+        icon: ShoppingCart,
+        subItems: [
+          { title: "Digital Indent", url: "/dashboard/procurement/indent", icon: FileText },
+          { title: "Visual GRN", url: "/dashboard/procurement/grn", icon: Camera },
+        ],
+      },
+      {
+        title: "Central Kitchen",
+        url: "/dashboard/kitchen",
+        icon: ChefHat,
+        subItems: [
+          { title: "Recipe Lockdown", url: "/dashboard/kitchen/recipes", icon: WheatIcon },
+          { title: "One-Tap Production", url: "/dashboard/kitchen/production", icon: PackageCheck },
+        ],
+      },
+      {
+        title: "Logistics",
+        url: "/dashboard/logistics",
+        icon: Truck,
+        subItems: [
+          { title: "Digital Challan", url: "/dashboard/logistics/challan", icon: ClipboardCheck },
+          { title: "Handshake", url: "/dashboard/logistics/handshake", icon: PackageCheck },
+        ],
+      },
+      {
+        title: "Outlet",
+        url: "/dashboard/outlet",
+        icon: Store,
+        subItems: [
+          { title: "Opening Stock Audit", url: "/dashboard/outlet/opening-audit", icon: ClipboardCheck },
+          { title: "EOD Sync", url: "/dashboard/outlet/eod-sync", icon: Calendar },
+          { title: "Return to Factory", url: "/dashboard/outlet/returns", icon: Package },
+        ],
+      },
+      {
+        title: "Command Center",
+        url: "/dashboard/command-center",
+        icon: Command,
+        subItems: [
+          { title: "Variance Analysis", url: "/dashboard/command-center/variance", icon: TrendingUp },
+          { title: "COGS Live", url: "/dashboard/command-center/cogs", icon: BarChart3 },
+        ],
+      },
+    ],
+  },
+  {
+    id: 3,
+    label: "Inventory & Supply",
     items: [
       {
         title: "Inventory",
@@ -62,12 +128,36 @@ export const sidebarItems: NavGroup[] = [
         title: "Suppliers",
         url: "/dashboard/suppliers",
         icon: TruckIcon,
+        subItems: [
+          { title: "Supplier Rating", url: "/dashboard/suppliers/rating", icon: Star },
+        ],
       },
       {
         title: "Products",
         url: "/dashboard/products",
         icon: UtensilsCrossed,
       },
+      {
+        title: "FEFO Tracking",
+        url: "/dashboard/fefo",
+        icon: AlertCircle,
+      },
+      {
+        title: "Predictive Indent",
+        url: "/dashboard/predictive-indent",
+        icon: TrendingUp,
+      },
+      {
+        title: "Stock Alerts",
+        url: "/dashboard/stock-alerts",
+        icon: PackageSearch,
+      },
+    ],
+  },
+  {
+    id: 4,
+    label: "Reports & Finance",
+    items: [
       {
         title: "Finance",
         url: "/dashboard/finance",
@@ -81,7 +171,7 @@ export const sidebarItems: NavGroup[] = [
     ],
   },
   {
-    id: 3,
+    id: 5,
     label: "System",
     items: [
       {

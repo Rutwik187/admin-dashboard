@@ -14,9 +14,9 @@ export default function Page() {
       {/* Header */}
       <div className="flex flex-col gap-4 @3xl:flex-row @3xl:items-center @3xl:justify-between">
         <div className="flex flex-col gap-2">
-          <h1 className="text-3xl font-bold tracking-tight">Financial Management</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Bakery Financial Management</h1>
           <p className="text-muted-foreground">
-            Track revenue, expenses, cash flow, and financial performance of your restaurant
+            Track revenue, expenses, cash flow, ingredient costs, and financial performance of your bakery
           </p>
         </div>
         <div className="flex flex-wrap gap-2">

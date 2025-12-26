@@ -12,41 +12,41 @@ const recentTransactions = [
   {
     id: 1,
     title: "Weekend Sales",
-    subtitle: "Dine-in and takeout orders",
+    subtitle: "Cakes, pastries, and bread orders",
     type: "credit",
-    amount: 8450,
+    amount: 12450,
     date: "Oct 24",
   },
   {
     id: 2,
-    title: "Fresh Farms Co.",
-    subtitle: "Inventory purchase - meat & poultry",
+    title: "Sugar & Flour Supplier",
+    subtitle: "Inventory purchase - raw materials",
     type: "debit",
-    amount: 2340,
+    amount: 3450,
     date: "Oct 23",
   },
   {
     id: 3,
     title: "Staff Salaries",
-    subtitle: "Bi-weekly payroll",
+    subtitle: "Bi-weekly payroll - bakers & staff",
     type: "debit",
-    amount: 5600,
+    amount: 6800,
     date: "Oct 22",
   },
   {
     id: 4,
     title: "Daily Revenue",
-    subtitle: "Thursday operations",
+    subtitle: "Friday bakery sales",
     type: "credit",
-    amount: 4850,
+    amount: 8950,
     date: "Oct 21",
   },
   {
     id: 5,
     title: "Utility Bill",
-    subtitle: "Electricity and water",
+    subtitle: "Electricity for ovens and equipment",
     type: "debit",
-    amount: 890,
+    amount: 1250,
     date: "Oct 20",
   },
 ];
@@ -56,7 +56,7 @@ export function AccountOverview() {
     <Card className="shadow-xs">
       <CardHeader className="items-center">
         <CardTitle>Financial Accounts</CardTitle>
-        <CardDescription>Your restaurant's financial summary and recent transactions.</CardDescription>
+        <CardDescription>Your bakery's financial summary and recent transactions.</CardDescription>
         <CardAction>
           <Button size="icon" variant="outline">
             <Plus className="size-4" />
@@ -78,7 +78,7 @@ export function AccountOverview() {
                 <div className="absolute top-1/2 w-full -translate-y-1/2">
                   <div className="flex items-end justify-between px-6">
                     <span className="text-accent font-mono text-lg leading-none font-medium tracking-wide uppercase">
-                      Restaurant Business
+                      Bakery Business
                     </span>
                     <DollarSign className="text-accent size-14" />
                   </div>

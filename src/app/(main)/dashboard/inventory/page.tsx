@@ -25,7 +25,7 @@ export default function Page() {
         <div className="flex flex-col gap-2">
           <h1 className="text-3xl font-bold tracking-tight">Inventory Management</h1>
           <p className="text-muted-foreground">
-            Track and manage your restaurant inventory, monitor stock levels, and reorder supplies
+            Track and manage your bakery inventory, monitor stock levels, and reorder supplies
           </p>
         </div>
         <div className="flex flex-wrap gap-2">

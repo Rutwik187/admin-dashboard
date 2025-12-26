@@ -55,8 +55,8 @@ export default function Page() {
     <div className="flex flex-col gap-4 @container">
       {/* Header */}
       <div className="flex flex-col gap-2">
-        <h1 className="text-3xl font-bold tracking-tight">Restaurant Dashboard</h1>
-        <p className="text-muted-foreground">Overview of your restaurant operations and key metrics</p>
+        <h1 className="text-3xl font-bold tracking-tight">Aamchi Mumbai Dashboard</h1>
+        <p className="text-muted-foreground">Overview of your bakery operations and key metrics</p>
       </div>
 
       {/* Key Metrics Cards */}
