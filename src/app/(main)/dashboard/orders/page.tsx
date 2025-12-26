@@ -1,17 +1,17 @@
 "use client";
 
-import { Store, ClipboardCheck, Calendar, Package } from "lucide-react";
+import { ShoppingBag, Factory, Boxes } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-export default function OutletPage() {
+export default function OrdersPage() {
   return (
     <div className="flex flex-col gap-6 @container">
       <div className="flex flex-col gap-2">
-        <h1 className="text-3xl font-bold tracking-tight">Outlet Module</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Order Management</h1>
         <p className="text-muted-foreground">
-          Manage outlet stock, track sales, and handle returns
+          Complete order workflow from creation to packaging. No Excel sheets needed.
         </p>
       </div>
 
@@ -19,16 +19,16 @@ export default function OutletPage() {
         <Card className="hover:shadow-md transition-shadow">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <ClipboardCheck className="size-5" />
-              Opening Stock Audit
+              <ShoppingBag className="size-5" />
+              Create Order
             </CardTitle>
             <CardDescription>
-              2-minute visual count every morning. System checks against expected stock
+              Point of contact order creation. Select products and quantities from dropdown
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Link href="/dashboard/outlet/opening-audit">
-              <Button className="w-full">Start Audit</Button>
+            <Link href="/dashboard/orders/create">
+              <Button className="w-full">Create New Order</Button>
             </Link>
           </CardContent>
         </Card>
@@ -36,16 +36,16 @@ export default function OutletPage() {
         <Card className="hover:shadow-md transition-shadow">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Calendar className="size-5" />
-              EOD Sync
+              <Factory className="size-5" />
+              Production
             </CardTitle>
             <CardDescription>
-              End of Day sync with billing software. Auto-calculates closing stock
+              Production department receives orders and marks as completed with images
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Link href="/dashboard/outlet/eod-sync">
-              <Button className="w-full">Sync Now</Button>
+            <Link href="/dashboard/orders/production">
+              <Button className="w-full">View Production</Button>
             </Link>
           </CardContent>
         </Card>
@@ -53,16 +53,16 @@ export default function OutletPage() {
         <Card className="hover:shadow-md transition-shadow">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Package className="size-5" />
-              Return to Factory
+              <Boxes className="size-5" />
+              Packaging
             </CardTitle>
             <CardDescription>
-              Scan unsold items back into van. System tracks wastage cost
+              Packaging department tracks packaging progress as items are packed
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Link href="/dashboard/outlet/returns">
-              <Button className="w-full">Process Returns</Button>
+            <Link href="/dashboard/orders/packaging">
+              <Button className="w-full">View Packaging</Button>
             </Link>
           </CardContent>
         </Card>

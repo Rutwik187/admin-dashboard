@@ -23,6 +23,9 @@ import {
   AlertCircle,
   Star,
   Calendar,
+  ShoppingBag,
+  Factory,
+  Boxes,
   type LucideIcon,
 } from "lucide-react";
 
@@ -68,6 +71,16 @@ export const sidebarItems: NavGroup[] = [
     label: "Operational Zones",
     items: [
       {
+        title: "Outlet",
+        url: "/dashboard/outlet",
+        icon: Store,
+        subItems: [
+          { title: "Opening Stock Audit", url: "/dashboard/outlet/opening-audit", icon: ClipboardCheck },
+          { title: "EOD Sync", url: "/dashboard/outlet/eod-sync", icon: Calendar },
+          { title: "Return to Factory", url: "/dashboard/outlet/returns", icon: Package },
+        ],
+      },
+      {
         title: "Procurement",
         url: "/dashboard/procurement",
         icon: ShoppingCart,
@@ -94,16 +107,7 @@ export const sidebarItems: NavGroup[] = [
           { title: "Handshake", url: "/dashboard/logistics/handshake", icon: PackageCheck },
         ],
       },
-      {
-        title: "Outlet",
-        url: "/dashboard/outlet",
-        icon: Store,
-        subItems: [
-          { title: "Opening Stock Audit", url: "/dashboard/outlet/opening-audit", icon: ClipboardCheck },
-          { title: "EOD Sync", url: "/dashboard/outlet/eod-sync", icon: Calendar },
-          { title: "Return to Factory", url: "/dashboard/outlet/returns", icon: Package },
-        ],
-      },
+
       {
         title: "Command Center",
         url: "/dashboard/command-center",
@@ -111,6 +115,16 @@ export const sidebarItems: NavGroup[] = [
         subItems: [
           { title: "Variance Analysis", url: "/dashboard/command-center/variance", icon: TrendingUp },
           { title: "COGS Live", url: "/dashboard/command-center/cogs", icon: BarChart3 },
+        ],
+      },
+      {
+        title: "Order Management",
+        url: "/dashboard/orders",
+        icon: ShoppingBag,
+        subItems: [
+          { title: "Create Order", url: "/dashboard/orders/create", icon: ShoppingBag },
+          { title: "Production", url: "/dashboard/orders/production", icon: Factory },
+          { title: "Packaging", url: "/dashboard/orders/packaging", icon: Boxes },
         ],
       },
     ],
